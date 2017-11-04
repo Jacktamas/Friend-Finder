@@ -20,7 +20,7 @@ module.exports = function(app) {
   });
 
   app.get("/friends", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/friends.html"));
+    res.sendFile(path.join(__dirname, "../public/survey.html"));
   });
 
   // If no matching route is found default to home
