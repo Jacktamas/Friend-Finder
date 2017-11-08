@@ -2,37 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tables Page</title>
+  <title>Friend Finder</title>
 
   <!-- Latest compiled and minified CSS -->
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/friend-finder.png">
+  <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 
 </head>
 <body>
 
-  <div class="container">
+  <div class="container-fluid">
 
-    <div class="jumbotron">
-      <h1 class="text-center"><span class="glyphicon glyphicon-fire"></span> Hot Restaurant</h1>
-      <hr>
-      <h2 class="text-center">We only have 5 tables! Book your seat before they all are gone!</h2>
+    <div class="row">
+
+      <h1 class="text-center animated delay-02s wow shadow fadeInDown">
+        <div>
+          <img src="./assets/images/friend-finder.svg" width="200">
+        </div>
+        <span class=" color-animation">FRIEND FINDER</span>
+      </h1>
+      <hr class="box-shadow animated delay-02s fadeInDown ">
+      <h2 class="text-center animated delay-04s wow fadeInUp"><i>"The greatest gift of life is friendship, and I have received it."</i><br>
+        <span><b>Hubert H. Humphrey</b></span>
+      </h2>
       <br>
 
-      <div class="text-center">
-        <a href="/"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a>
-        <a href="/friends"><button type="button" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-credit-card"></span> Make Reservation</button></a>
+      <div class="text-center animated wow delay-05s fadeInUp">
+        <a href="/friends"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-user"></span> Find a matching friend</button></a>
       </div>
 
     </div>
 
-    <footer class="footer">
-      <div class="container">
-        <p><a href="/api/friends">API Table Link</a> | <a href="/api/waitlist">API Wait List</a> | <a href="https://github.com/Jacktamas/Friend-Finder">GitHub Repo</a></p>
-      </div>
-    </footer>
+    <div class="container-fluid">
+      <div class="row margin-top" id="friendsCards"></div>
+    </div>
+
+
 
   </div>
+  <footer class="footer navbar-fixed-bottom black">
+    <div class="container text-center">
+      <span>© 2017 Jack Tamas</span>
+    </div>
+  </footer>
 
-
+  <script src="assets/js/wow.js"></script>
+  <script src="assets/js/web.js"></script>
 </body>
 </html>
