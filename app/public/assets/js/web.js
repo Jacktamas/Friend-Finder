@@ -48,7 +48,7 @@ $(document).ready(function(){
         $('<figcaption>')
         .addClass('text-center img-thumbnail')
         .html('<b>'+data[i].name+'</b>')
-      ).appendTo('#friendsCards')
+      ).appendTo('#friendsCards').addClass('margin-top')
     }
   });
 
@@ -111,7 +111,8 @@ $("button.submit").on("click", function(event) {
   if(friend.scores.length == 10){
     $.post('/api/friends', friend, function(data) {
       if(data){
-        $('.modal-title').html('<b>'+data.name+'</b>').addClass('text-center')
+        console.log(data.name)
+        $('.modal-title').text(data.name).addClass('text-center')
         $('.modal-body').html(
           $('<img>')
           .attr('src', data.photo)
