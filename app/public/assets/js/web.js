@@ -4,7 +4,6 @@ var questions = ['I get angry easily','I am filled with doubts about things',
 
 
 $(document).ready(function(){
-
   for(var index=0; index < questions.length; index++){
     $('form > button:last').before(
       $('<div>')
@@ -15,7 +14,7 @@ $(document).ready(function(){
         .append(
           $('<label>')
           .attr('for','question'+(index+1))
-          .text('Question '+(index+1)),('<br/>'),
+          .text('Question '+(index+1)),('<span style="color: red;"> *</span><br/>'),
           $('<p>').html(questions[index]),
           $('<select>')
           .addClass('form-control')
@@ -37,6 +36,23 @@ $(document).ready(function(){
     url:'/api/friends',
     method: 'GET'
   }).done(function(data){
+    var images = 0;
+    setInterval(function(){
+      if(images < data.length){
+        var imgUrl =  data[images].photo;
+        $('#logo').empty();
+        $('#logo').append(
+          $('<img>')
+          .addClass('fadeIn animated animation-duration-1s img img-thumbnail img-size')
+          .attr('src', imgUrl)
+        )
+        images ++;
+      }
+      else {
+        images =0;
+      }
+    },2000);
+
     for(var i=0; i < data.length; i++){
       $('<figure>')
       .addClass('col-lg-3 img margin animated delay-0'+(i+2)+'s fadeInUp photo')
@@ -50,6 +66,7 @@ $(document).ready(function(){
         .html('<b>'+data[i].name+'</b>')
       ).appendTo('#friendsCards').addClass('margin-top')
     }
+
   });
 
   $.fn.extend({

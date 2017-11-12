@@ -109,3 +109,13 @@ figcaption {
 .wrapper {
 	height: 30px;
 }
+.img-size {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#logo {
+	padding: 0;
+	height: 300px;
+	margin: 0;
+}

@@ -1,13 +1,20 @@
-var friendsDB = require("../data/friends.js");
 var lodash = require('lodash');
+var fs = require('fs');
 
+var friendsDB;
 module.exports = function (req, res){
+  //Reading my database file
+  var data = fs.readFileSync('./app/data/friends.js');
+  //Converting my data coming from database file to JSON
+  friendsDB = JSON.parse(data.toString());
   var newFriend = req.body;
+
   var bestMatch = {
     name: '',
     photo: '',
     totalDiff: 50
   };
+  //Substracting the scores arrays of new friend and friend from the database file
   function subtractarrays(array1, array2){
     var difference = [];
     for( var i = 0; i < array1.length; i++ ) {
@@ -18,7 +25,8 @@ module.exports = function (req, res){
     }, 1);
     return friendTotal;
   }
-
+  //looping over the friends database and check
+  //which friend scores array is the cloeset to the new friend scores array
   for(var j=0; j < friendsDB.length; j++){
     var friendArr = friendsDB[j];
     var newFriendScoreArr = newFriend['scores[]'];
@@ -30,5 +38,10 @@ module.exports = function (req, res){
     }
   }
   res.json(bestMatch);
-  friendsDB.push(req.body)
+  //updating my database file with the new friend that has been added
+  friendsDB.push(req.body);
+  var updatedFriendsDB = new Buffer.from(JSON.stringify(friendsDB));
+  fs.writeFile('./app/data/friends.js', updatedFriendsDB, (err) => {
+    throw (err);
+  });
 }

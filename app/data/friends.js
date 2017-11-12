@@ -1,4 +1,4 @@
-var friendsDB = [
+[
   {
     "name":"Ahmed Hamad",
     "photo":"https://scontent.fsan1-2.fna.fbcdn.net/v/t1.0-9/10384363_10202943408129454_4219818701438443394_n.jpg?oh=17e5c007e8f2f95f5a1a03fdaf6c2923&oe=5A6CD2C5",
@@ -63,5 +63,4 @@ var friendsDB = [
       2
     ]
   }
-];
-module.exports = friendsDB;
+]
