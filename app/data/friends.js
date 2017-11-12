@@ -3,11 +3,11 @@ var friendsDB = [
     "name":"Ahmed Hamad",
     "photo":"https://scontent.fsan1-2.fna.fbcdn.net/v/t1.0-9/10384363_10202943408129454_4219818701438443394_n.jpg?oh=17e5c007e8f2f95f5a1a03fdaf6c2923&oe=5A6CD2C5",
     "scores":[
-      5,
+      1,
       1,
       4,
+      1,
       4,
-      5,
       1,
       2,
       5,
@@ -20,15 +20,15 @@ var friendsDB = [
     "photo":"https://scontent.fsan1-2.fna.fbcdn.net/v/l/t1.0-9/11138612_884931714912257_6529594567914583349_n.jpg?oh=80a7b982bf9a7449761fe71aaef00732&oe=5A71C31B",
     "scores":[
       4,
-      2,
+      3,
       3,
       1,
       5,
-      1,
+      5,
       2,
       5,
       4,
-      1
+      5
     ]
   },
   {
@@ -37,13 +37,13 @@ var friendsDB = [
     "scores":[
       3,
       2,
-      1,
+      2,
       1,
       5,
       4,
+      2,
       1,
-      5,
-      1,
+      4,
       3
     ]
   },
@@ -57,11 +57,11 @@ var friendsDB = [
       3,
       5,
       1,
+      1,
+      2,
       4,
-      5,
-      4,
-      5
+      2
     ]
   }
-]
+];
 module.exports = friendsDB;

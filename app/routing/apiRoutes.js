@@ -5,6 +5,7 @@
 // ===============================================================================
 
 var friendsDB = require("../data/friends.js");
+var apiController = require('../controllers/apiController.js')
 
 
 // ===============================================================================
@@ -29,12 +30,7 @@ module.exports = function(app) {
   // (ex. User fills out a reservation request... this data is then sent to the server...
   // Then the server saves the data to the friendsDB array)
   // ---------------------------------------------------------------------------
-  app.post('/api/friends', function(req, res) {
-    friendsDB.push(req.body);
-    if(friendsDB.indexOf(req.body) !== -1){
-      res.json(friendsDB)
-    }
-  })
+  app.post('/api/friends', apiController)
 
   // ---------------------------------------------------------------------------
   // I added this below code so you could clear out the table while working with the functionality.
