@@ -55,7 +55,7 @@ $(document).ready(function(){
 
     for(var i=0; i < data.length; i++){
       $('<figure>')
-      .addClass('col-lg-2 img margin animated delay-0'+(i+2)+'s fadeInUp photo')
+      .addClass('col-lg-3 img margin animated delay-0'+(i+2)+'s fadeInUp photo')
       .append(
         $('<img>')
         .addClass('img img-thumbnail')
