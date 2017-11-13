@@ -99,6 +99,8 @@ body {
 .photo img {
 	width: 180px;
 	height: 200px;
+	display: block;
+	margin: 0 auto;
 }
 figcaption {
 	width: 180px;

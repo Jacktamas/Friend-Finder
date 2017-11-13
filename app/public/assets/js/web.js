@@ -55,15 +55,15 @@ $(document).ready(function(){
 
     for(var i=0; i < data.length; i++){
       $('<figure>')
-      .addClass('col-lg-3 img margin animated delay-0'+(i+2)+'s fadeInUp photo')
+      .addClass('col-lg-2 img margin animated delay-0'+(i+2)+'s fadeInUp photo')
       .append(
         $('<img>')
         .addClass('img img-thumbnail')
         .attr('src', data[i].photo)
-        .attr('alt', data[i].name),
+        .attr('alt', data[i].name.toUpperCase()),
         $('<figcaption>')
         .addClass('text-center img-thumbnail')
-        .html('<b>'+data[i].name+'</b>')
+        .html('<b>'+data[i].name.toUpperCase()+'</b>')
       ).appendTo('#friendsCards').addClass('margin-top')
     }
 
@@ -125,10 +125,29 @@ $("button.submit").on("click", function(event) {
     };
 
   });
+  // Clear the form when submitting
+  $("#name").val("");
+  $("#photolink").val("");
+  $('select option:selected').each(function(num){
+    $('#question'+(num+1)+'')
+    .prop('selectedIndex',0)
+    .css('border-color', '#d1d1d1');
+    $('#photolink').css('border-color', '#d1d1d1');
+    $('#name').css('border-color', '#d1d1d1');
+  });
+
   if(friend.scores.length == 10){
     $.post('/api/friends', friend, function(data) {
-      if(data){
-        console.log(data.name)
+      if(data === false){
+        $('.modal-title').html('<span style="color: red;">ERROR!</span>').addClass('text-center')
+        $('.modal-body').html(
+          $('<h1>')
+          .addClass('text-center')
+          .text('Sorry! You\'re already exist! in our database!')
+        )
+        $('#myModal').modal('show');
+      }
+      else {
         $('.modal-title').text(data.name).addClass('text-center')
         $('.modal-body').html(
           $('<img>')
@@ -136,21 +155,7 @@ $("button.submit").on("click", function(event) {
           .addClass('img img-thumbnail')
         )
         $('#myModal').modal('show');
-        // Clear the form when submitting
-        $("#name").val("");
-        $("#photolink").val("");
-        $('select option:selected').each(function(num){
-          $('#question'+(num+1)+'')
-          .prop('selectedIndex',0)
-          .css('border-color', '#d1d1d1');
-          $('#photolink').css('border-color', '#d1d1d1');
-          $('#name').css('border-color', '#d1d1d1');
-        });
-      }
-      else {
-        alert('Sorry could not process!')
       }
     });
   }
 });
-//

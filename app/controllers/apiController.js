@@ -27,6 +27,7 @@ module.exports = function (req, res){
   }
   //looping over the friends database and check
   //which friend scores array is the cloeset to the new friend scores array
+  var userExists = false;
   for(var j=0; j < friendsDB.length; j++){
     var friendArr = friendsDB[j];
     var newFriendScoreArr = newFriend['scores[]'];
@@ -36,12 +37,20 @@ module.exports = function (req, res){
       bestMatch.photo = friendArr.photo;
       bestMatch.totalDiff = scoreDiff;
     }
+    if(friendsDB[j].name.toLowerCase().indexOf(req.body.name.toLowerCase()) === 0 || friendsDB[j].photo.toLowerCase().indexOf(req.body.photo.toLowerCase()) === 0){
+      userExists = true;
+    }
+
   }
-  res.json(bestMatch);
-  //updating my database file with the new friend that has been added
-  friendsDB.push(req.body);
-  var updatedFriendsDB = new Buffer.from(JSON.stringify(friendsDB));
-  fs.writeFile('./app/data/friends.js', updatedFriendsDB, (err) => {
-    throw (err);
-  });
+
+  if(userExists === false){
+    res.json(bestMatch);
+    friendsDB.push(req.body);
+    var updatedFriendsDB = new Buffer.from(JSON.stringify(friendsDB));
+    fs.writeFile('./app/data/friends.js', updatedFriendsDB);
+  }
+  else {
+    res.json(false);
+  }
+  //updating my database file with the new friend that has been added if friend exists don not add
 }
