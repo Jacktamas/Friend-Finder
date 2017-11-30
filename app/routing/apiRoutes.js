@@ -1,5 +1,5 @@
 var fs = require('fs');
-var data = fs.readFileSync('/app/data/friends.js');
+var data = fs.readFileSync('app/data/friends.js');
 var friendsDB = JSON.parse(data.toString());
 var apiController = require('../controllers/apiController.js')
 
