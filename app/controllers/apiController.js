@@ -4,7 +4,7 @@ var fs = require('fs');
 var friendsDB;
 module.exports = function (req, res){
   //Reading my database file
-  var data = fs.readFileSync('./app/data/friends.js');
+  var data = fs.readFileSync('/app/data/friends.js');
   //Converting my data coming from database file to JSON
   friendsDB = JSON.parse(data.toString());
   var newFriend = req.body;
@@ -47,7 +47,7 @@ module.exports = function (req, res){
     res.json(bestMatch);
     friendsDB.push(req.body);
     var updatedFriendsDB = new Buffer.from(JSON.stringify(friendsDB));
-    fs.writeFile('./app/data/friends.js', updatedFriendsDB);
+    fs.writeFile('/app/data/friends.js', updatedFriendsDB);
   }
   else {
     res.json(false);
