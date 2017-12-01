@@ -36,7 +36,6 @@ $(document).ready(function(){
     url:'/api/friends',
     method: 'GET'
   }).done(function(data){
-    console.log(data)
     var images = 0;
     setInterval(function(){
       if(images < data.length){
