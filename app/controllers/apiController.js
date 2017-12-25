@@ -1,6 +1,8 @@
 var lodash = require('lodash');
 var fs = require('fs');
 
+console.log('mashapeKey-->', )
+
 var friendsDB;
 module.exports = function (req, res){
   //Reading my database file
