@@ -98,7 +98,7 @@ body {
 }
 .photo img {
 	width: 180px;
-	height: 200px;
+	height: 180px;
 	display: block;
 	margin: 0 auto;
 }
@@ -106,7 +106,9 @@ figcaption {
 	width: 180px;
 }
 .modal-dialog {
-	width: 500px;
+	padding: 20px;
+	width: 300px;
+	margin: 0 auto;
 }
 .wrapper {
 	height: 30px;

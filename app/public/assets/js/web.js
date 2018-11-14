@@ -10,7 +10,7 @@ $(document).ready(function(){
       .addClass('row')
       .append(
         $('<div>')
-        .addClass('form-group animated wow delay-0'+(index+1)+'s slideInUp fadeInUp col-lg-3')
+        .addClass('form-group animated wow delay-0'+(index+1)+'s slideInUp fadeInUp col-lg-4 col-md-9 col-sm-12 col-xs-12')
         .append(
           $('<label>')
           .attr('for','question'+(index+1))
@@ -55,7 +55,7 @@ $(document).ready(function(){
 
     for(var i=0; i < data.length; i++){
       $('<figure>')
-      .addClass('col-lg-3 img margin animated delay-0'+(i+2)+'s fadeInUp photo')
+      .addClass('col-lg-2 col-md-3 col-sm-4 col-xs-6 img margin animated delay-0'+(i+2)+'s fadeInUp photo')
       .append(
         $('<img>')
         .addClass('img img-thumbnail')
@@ -96,10 +96,7 @@ $("button.submit").on("click", function(event) {
   }
 
   if($('#photolink').val() == ''){
-    $('#photolink')
-    .animateCss('shake')
-    .css('border-color', 'red');
-    $(window).scrollTop('#photolink');
+    var friendPhoto = 'http://placehold.jp/180x180.png';
   }
   else {
     (!$('#photolink').val() == '')
@@ -148,11 +145,13 @@ $("button.submit").on("click", function(event) {
         $('#myModal').modal('show');
       }
       else {
-        $('.modal-title').text(data.name).addClass('text-center')
-        $('.modal-body').html(
+        $('.modal-title').text(data.name.toUpperCase()).addClass('text-center')
+        $('.modal-body').addClass('text-center').html(
           $('<img>')
           .attr('src', data.photo)
-          .addClass('img img-thumbnail')
+          .attr('width', '180px')
+          .attr('height', '180px')
+          .addClass('img img-thumbnail text-center')
         )
         $('#myModal').modal('show');
       }

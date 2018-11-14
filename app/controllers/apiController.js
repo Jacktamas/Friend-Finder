@@ -1,7 +1,7 @@
 var lodash = require('lodash');
 var fs = require('fs');
 
-console.log('mashapeKey-->', )
+console.log('mashapeKey-->')
 
 var friendsDB;
 module.exports = function (req, res){
@@ -39,7 +39,7 @@ module.exports = function (req, res){
       bestMatch.photo = friendArr.photo;
       bestMatch.totalDiff = scoreDiff;
     }
-    if(friendsDB[j].name.toLowerCase().indexOf(req.body.name.toLowerCase()) === 0 || friendsDB[j].photo.toLowerCase().indexOf(req.body.photo.toLowerCase()) === 0){
+    if(friendsDB[j].name.toLowerCase().indexOf(req.body.name.toLowerCase()) === 0 ){
       userExists = true;
     }
 
