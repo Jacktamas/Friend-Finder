@@ -16,7 +16,6 @@
   "bugs": {
     "url": "https://github.com/Jacktamas/Friend-Finder/issues"
   },
-  "homepage": "https://github.com/Jacktamas/Friend-Finder#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
